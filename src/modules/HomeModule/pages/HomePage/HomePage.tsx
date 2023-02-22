@@ -3,9 +3,9 @@ import { Card } from "@/global-components";
 import CharacterLength from "../../components/CharacterLength/CharacterLength";
 import CheckboxesContainer from "../../components/CheckboxesContainer/CheckboxesContainer";
 import PasswordBox from "../../components/PasswordBox/PasswordBox";
-import styles from "./HomePage.module.scss";
+// import styles from "./HomePage.module.scss";
 
-type includeObjectType = {
+type optionsType = {
     uppercase: boolean;
     lowercase: boolean;
     numbers: boolean;
@@ -14,66 +14,68 @@ type includeObjectType = {
 
 export const HomePage: React.FC = () => {
     const [password, setPassword] = useState<string>("");
-    const [characterLength, setCharacterLength] = useState<number>(6);
-    const [includeObject, setIncludeObject] = useState<includeObjectType>({
-        uppercase: false,
-        lowercase: false,
-        numbers: false,
-        symbols: false,
+    const [passwordLength, setPasswordLength] = useState<number>(6);
+    const [options, setOptions] = useState<optionsType>({
+        uppercase: true,
+        lowercase: true,
+        numbers: true,
+        symbols: true,
     });
 
     useEffect(() => {
         generatePassword();
-    }, [characterLength, includeObject]);
+    }, [passwordLength, options]);
 
     const generatePassword = () => {
-        setPassword("X".repeat(characterLength));
-    };
+        let newPassword = "";
+        const charactersOptions: Record<string, string> = {
+            lowercase: "abcdefghijklmnopqrstuvwxyz",
+            uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            numbers: "01234566789",
+            symbols: "!@#$%^&*",
+        };
 
-    const characterLengthChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCharacterLength(parseInt(e.target.value));
-    };
+        const checkedOptions = Object.entries(options).filter(([key, value]) => value === true);
+        const checkedValues = checkedOptions.map((obj) => obj[0]);
 
-    const includeObjectChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let parameterToChange = "";
-        switch (e.target.id) {
-            case "Include_Uppercase_Letter":
-                parameterToChange = "uppercase";
-                break;
+        for (let i = 0; i < passwordLength; i++) {
+            const drawnOption = checkedValues[Math.floor(Math.random() * checkedValues.length)];
+            const drawnCharacters = charactersOptions[drawnOption];
+            const drawnCharacter = drawnCharacters[Math.floor(Math.random() * drawnCharacters.length)];
 
-            case "Include_Lowercase_Letter":
-                parameterToChange = "lowercase";
-                break;
-
-            case "Include_Numbers":
-                parameterToChange = "numbers";
-                break;
-
-            case "Include_Symbols":
-                parameterToChange = "symbols";
-                break;
+            newPassword += drawnCharacter;
         }
+        setPassword(newPassword);
+    };
 
-        setIncludeObject((prevState) => ({
+    const passwordLengthChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPasswordLength(parseInt(e.target.value));
+    };
+
+    const optionsChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const checkedOptions = Object.entries(options).filter(([key, value]) => value === true);
+        if (checkedOptions.length == 1 && !e.target.checked) return;
+
+        setOptions((prevState) => ({
             ...prevState,
-            [parameterToChange]: e.target.checked,
+            [e.target.id]: e.target.checked,
         }));
     };
 
     return (
         <Card propsStyles={{ marginTop: "100px" }}>
             <h1>Password Generator</h1>
-            <CharacterLength characterLength={characterLength} characterLengthChange={characterLengthChangeHandler} />
-            <CheckboxesContainer includeObjectChange={includeObjectChangeHandler} />
+            <CharacterLength passwordLength={passwordLength} characterLengthChange={passwordLengthChangeHandler} />
+            <CheckboxesContainer options={options} optionsChange={optionsChangeHandler} />
             <PasswordBox password={password} />
             <div>
                 <p>See the README.md for more information on how to start your challenge.</p>
                 <button
                     onClick={() => {
-                        setCharacterLength((characterLength) => characterLength + 1);
+                        setPasswordLength((passwordLength) => passwordLength + 1);
                     }}
                 >
-                    count is {characterLength}
+                    count is {passwordLength}
                 </button>
             </div>
         </Card>

@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./CharacterLength.module.scss";
 
 interface IProps {
-    characterLength: number;
+    passwordLength: number;
     characterLengthChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CharacterLength: React.FC<IProps> = ({ characterLength, characterLengthChange }) => {
+const CharacterLength: React.FC<IProps> = ({ passwordLength, characterLengthChange }) => {
     return (
         <div className={styles.container}>
             <div className={styles.label_container}>
                 <h2>Character Length</h2>
-                <h2 className={styles.character_count_label}>{characterLength}</h2>
+                <h2 className={styles.character_count_label}>{passwordLength}</h2>
             </div>
             <input
                 type="range"
@@ -19,7 +19,7 @@ const CharacterLength: React.FC<IProps> = ({ characterLength, characterLengthCha
                 id="characterLength"
                 min={4}
                 max={16}
-                value={characterLength}
+                value={passwordLength}
                 onChange={characterLengthChange}
             />
         </div>

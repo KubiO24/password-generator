@@ -2,20 +2,36 @@ import React from "react";
 import styles from "./CheckboxesContainer.module.scss";
 import Checkbox from "../Checkbox/Checkbox";
 
+type optionsType = {
+    uppercase: boolean;
+    lowercase: boolean;
+    numbers: boolean;
+    symbols: boolean;
+};
+
 interface IProps {
-    includeObjectChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    options: optionsType;
+    optionsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const CheckboxesContainer: React.FC<IProps> = ({ includeObjectChange }) => {
+const CheckboxesContainer: React.FC<IProps> = ({ options, optionsChange }) => {
     return (
         <div className={styles.mainContainer}>
             <div className={styles.leftContainer}>
-                <Checkbox onChange={includeObjectChange}>Include Uppercase Letter</Checkbox>
-                <Checkbox onChange={includeObjectChange}>Include Lowercase Letter</Checkbox>
+                <Checkbox name="uppercase" checked={options.uppercase} onChange={optionsChange}>
+                    Include Uppercase Letter
+                </Checkbox>
+                <Checkbox name="lowercase" checked={options.lowercase} onChange={optionsChange}>
+                    Include Lowercase Letter
+                </Checkbox>
             </div>
             <div>
-                <Checkbox onChange={includeObjectChange}>Include Numbers</Checkbox>
-                <Checkbox onChange={includeObjectChange}>Include Symbols</Checkbox>
+                <Checkbox name="numbers" checked={options.numbers} onChange={optionsChange}>
+                    Include Numbers
+                </Checkbox>
+                <Checkbox name="symbols" checked={options.symbols} onChange={optionsChange}>
+                    Include Symbols
+                </Checkbox>
             </div>
         </div>
     );
