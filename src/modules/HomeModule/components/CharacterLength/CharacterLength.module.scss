@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.character_count_label {
+    // font-size: 20px;
+}

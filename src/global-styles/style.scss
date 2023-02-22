@@ -13,6 +13,9 @@ body {
     letter-spacing: -2%;
     color: var(--color-black);
     background-color: var(--color-body);
+
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
