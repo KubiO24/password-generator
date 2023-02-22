@@ -1,15 +1,11 @@
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
-.label_container {
+.mainContainer {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+    justify-content: left;
+    flex-wrap: wrap;
 
-.character_count_label {
-    // font-size: 20px;
+    & > .leftContainer {
+        margin-right: 50px;
+    }
 }

@@ -12,7 +12,7 @@ export const HomePage: React.FC = () => {
     };
 
     return (
-        <Card>
+        <Card propsStyles={{ marginTop: "100px" }}>
             <h1>Password Generator</h1>
             <CharacterLength characterLength={characterLength} characterLengthChange={characterLengthChangeHandler} />
             <CheckboxesContainer />
