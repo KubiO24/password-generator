@@ -5,6 +5,6 @@ interface Props {
     children: JSX.Element | JSX.Element[];
 }
 
-export const Card = ({ children }: Props) => {
+export const Card: React.FC<Props> = ({ children }) => {
     return <div className={styles.card}>{children}</div>;
 };
