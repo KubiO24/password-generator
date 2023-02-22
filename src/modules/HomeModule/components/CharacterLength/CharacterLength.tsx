@@ -6,7 +6,7 @@ interface IProps {
     characterLengthChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const CharacterLength: React.FC<IProps> = ({ characterLength, characterLengthChange }) => {
+const CharacterLength: React.FC<IProps> = ({ characterLength, characterLengthChange }) => {
     return (
         <div className={styles.container}>
             <div className={styles.label_container}>
@@ -25,3 +25,5 @@ export const CharacterLength: React.FC<IProps> = ({ characterLength, characterLe
         </div>
     );
 };
+
+export default CharacterLength;

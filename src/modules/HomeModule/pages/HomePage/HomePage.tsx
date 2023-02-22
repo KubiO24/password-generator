@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styles from "./HomePage.module.scss";
 import { Card } from "@/global-components";
-import { CharacterLength } from "../../components/CharacterLength/CharacterLength";
+import CharacterLength from "../../components/CharacterLength/CharacterLength";
+import CheckboxesContainer from "../../components/CheckboxesContainer/CheckboxesContainer";
+import styles from "./HomePage.module.scss";
 
 export const HomePage: React.FC = () => {
     const [characterLength, setCharacterLength] = useState<number>(6);
@@ -14,7 +15,8 @@ export const HomePage: React.FC = () => {
         <Card>
             <h1>Password Generator</h1>
             <CharacterLength characterLength={characterLength} characterLengthChange={characterLengthChangeHandler} />
-            <div className={styles.card}>
+            <CheckboxesContainer />
+            <div>
                 <p>See the README.md for more information on how to start your challenge.</p>
                 <button
                     onClick={() => {
