@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card } from "@/global-components";
 import CharacterLength from "../../components/CharacterLength/CharacterLength";
 import CheckboxesContainer from "../../components/CheckboxesContainer/CheckboxesContainer";
+import PasswordBox from "../../components/PasswordBox/PasswordBox";
 import styles from "./HomePage.module.scss";
 
 type includeObjectType = {
@@ -12,6 +13,7 @@ type includeObjectType = {
 };
 
 export const HomePage: React.FC = () => {
+    const [password, setPassword] = useState<string>("");
     const [characterLength, setCharacterLength] = useState<number>(6);
     const [includeObject, setIncludeObject] = useState<includeObjectType>({
         uppercase: false,
@@ -20,8 +22,15 @@ export const HomePage: React.FC = () => {
         symbols: false,
     });
 
+    useEffect(() => {
+        generatePassword();
+    }, [characterLength, includeObject]);
+
+    const generatePassword = () => {
+        setPassword("X".repeat(characterLength));
+    };
+
     const characterLengthChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(includeObject);
         setCharacterLength(parseInt(e.target.value));
     };
 
@@ -56,6 +65,7 @@ export const HomePage: React.FC = () => {
             <h1>Password Generator</h1>
             <CharacterLength characterLength={characterLength} characterLengthChange={characterLengthChangeHandler} />
             <CheckboxesContainer includeObjectChange={includeObjectChangeHandler} />
+            <PasswordBox password={password} />
             <div>
                 <p>See the README.md for more information on how to start your challenge.</p>
                 <button

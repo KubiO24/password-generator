@@ -12,7 +12,7 @@
         vertical-align: bottom;
         width: 18px;
         height: 18px;
-        border: 1px solid var(--color-stroke);
+        border: var(--stroke-width) solid var(--color-stroke);
         border-radius: 6px;
         margin-right: 12px;
     }
