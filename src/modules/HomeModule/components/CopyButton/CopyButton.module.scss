@@ -1,0 +1,22 @@
+.button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    border: none;
+    border-radius: var(--border-rounding);
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background-color: #414253;
+    }
+
+    & img {
+        margin-right: 5px;
+    }
+}

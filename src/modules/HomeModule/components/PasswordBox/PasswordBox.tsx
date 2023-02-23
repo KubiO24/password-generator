@@ -11,7 +11,7 @@ const PasswordBox: React.FC<IProps> = ({ password, refreshPassword }) => {
     return (
         <div className={styles.passwordContainer}>
             <span>{password}</span>
-            <img src={RefreshSvg} alt="asd" onClick={refreshPassword} />
+            <img src={RefreshSvg} alt="refresh" onClick={refreshPassword} />
         </div>
     );
 };

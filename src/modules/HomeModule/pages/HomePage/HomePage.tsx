@@ -3,6 +3,7 @@ import { Card } from "@/global-components";
 import CharacterLength from "../../components/CharacterLength/CharacterLength";
 import CheckboxesContainer from "../../components/CheckboxesContainer/CheckboxesContainer";
 import PasswordBox from "../../components/PasswordBox/PasswordBox";
+import CopyButton from "../../components/CopyButton/CopyButton";
 // import styles from "./HomePage.module.scss";
 
 type optionsType = {
@@ -65,19 +66,14 @@ export const HomePage: React.FC = () => {
     return (
         <Card propsStyles={{ marginTop: "100px" }}>
             <h1>Password Generator</h1>
+
             <CharacterLength passwordLength={passwordLength} characterLengthChange={passwordLengthChangeHandler} />
+
             <CheckboxesContainer options={options} optionsChange={optionsChangeHandler} />
+
             <PasswordBox password={password} refreshPassword={generatePassword} />
-            <div>
-                <p>See the README.md for more information on how to start your challenge.</p>
-                <button
-                    onClick={() => {
-                        setPasswordLength((passwordLength) => passwordLength + 1);
-                    }}
-                >
-                    count is {passwordLength}
-                </button>
-            </div>
+            
+            <CopyButton password={password} />
         </Card>
     );
 };
