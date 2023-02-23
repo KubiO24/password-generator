@@ -64,7 +64,7 @@ export const HomePage: React.FC = () => {
     };
 
     return (
-        <Card propsStyles={{ marginTop: "100px" }}>
+        <Card propsStyles={{ marginTop: "50px" }}>
             <h1>Password Generator</h1>
 
             <CharacterLength passwordLength={passwordLength} characterLengthChange={passwordLengthChangeHandler} />
