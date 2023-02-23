@@ -71,8 +71,8 @@ export const HomePage: React.FC = () => {
 
             <CheckboxesContainer options={options} optionsChange={optionsChangeHandler} />
 
-            <PasswordBox password={password} refreshPassword={generatePassword} />
-            
+            <PasswordBox password={password} generatePassword={generatePassword} />
+
             <CopyButton password={password} />
         </Card>
     );
