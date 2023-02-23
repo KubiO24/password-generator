@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Card } from "@/global-components";
 import CharacterLength from "../../components/CharacterLength/CharacterLength";
 import CheckboxesContainer from "../../components/CheckboxesContainer/CheckboxesContainer";
+import PasswordStrength from "../../components/PasswordStrength/PasswordStrength";
 import PasswordBox from "../../components/PasswordBox/PasswordBox";
 import CopyButton from "../../components/CopyButton/CopyButton";
-// import styles from "./HomePage.module.scss";
 
 type optionsType = {
     uppercase: boolean;
@@ -70,6 +70,8 @@ export const HomePage: React.FC = () => {
             <CharacterLength passwordLength={passwordLength} characterLengthChange={passwordLengthChangeHandler} />
 
             <CheckboxesContainer options={options} optionsChange={optionsChangeHandler} />
+
+            <PasswordStrength passwordLength={passwordLength} />
 
             <PasswordBox password={password} generatePassword={generatePassword} />
 
