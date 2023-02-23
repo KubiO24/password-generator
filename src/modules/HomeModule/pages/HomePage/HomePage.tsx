@@ -67,7 +67,7 @@ export const HomePage: React.FC = () => {
             <h1>Password Generator</h1>
             <CharacterLength passwordLength={passwordLength} characterLengthChange={passwordLengthChangeHandler} />
             <CheckboxesContainer options={options} optionsChange={optionsChangeHandler} />
-            <PasswordBox password={password} />
+            <PasswordBox password={password} refreshPassword={generatePassword} />
             <div>
                 <p>See the README.md for more information on how to start your challenge.</p>
                 <button
