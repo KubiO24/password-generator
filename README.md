@@ -20,7 +20,7 @@
 This software uses the following open source packages:
 
 -   [React](https://reactjs.org/)
--   [TypeScript.js](https://www.typescriptlang.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
 -   [SCSS](https://sass-lang.com/)
 -   [Vite](https://vitejs.dev/)
 
