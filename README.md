@@ -10,6 +10,13 @@
   <a href="#Author">Author</a>
 </p>
 
+<p align="center">
+    <img alt="weak password" src="https://github.com/KubiO24/KubiO24/blob/main/password-generator/weak-password.png" />
+</p>
+<p align="center">
+    <img alt="strong password" src="https://github.com/KubiO24/KubiO24/blob/main/password-generator/strong-password.png" />
+</p>
+
 ## Live Preview
 
 [password-generator-green-sigma.vercel.app/](https://password-generator-green-sigma.vercel.app/)
