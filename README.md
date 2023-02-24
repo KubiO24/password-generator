@@ -19,7 +19,7 @@
 
 ## Live Preview
 
-[password-generator-green-sigma.vercel.app/](https://password-generator-green-sigma.vercel.app/)
+[password-generator-green-sigma.vercel.app](https://password-generator-green-sigma.vercel.app)
 
 
 ## Credits
